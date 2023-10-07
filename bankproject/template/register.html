@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+        *{
+    box-sizing: border-box;
+}
+body{
+
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    background-image: url('/static/images/img_2.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+
+
+.container {
+
+            margin: 0 auto;
+            width: 40%;
+            margin-top: 100px;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+
+.header{
+    border-bottom: 1px sold #f0f0f0;
+<!--   background-color: #f7f7f7;-->
+   padding:40px 40px;
+}
+.header h2{
+    margin: 0;
+    text-align: center;
+}
+.form{
+    padding: 5px 50px;
+}
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.form-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.form-control input{
+<!--    border: 2px solid #f0f0f0;-->
+<!--    border :1px solid #ccc;-->
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.form-control input:focus{
+<!--    outline: none;-->
+    border-color: #f7f7f7;
+}
+
+
+.form button{
+    background-color: #0099cc;
+    border:none;
+    color : white;
+    display: block;
+    font-size: 20px;
+    width:50%;
+    margin-top: 20px;
+    padding:10px 20px;
+    border-radius: 5px;
+    cursor:pointer;
+
+}
+ button:hover {
+   background-color: #0056b3;
+            }
+
+        </style>
+
+    </head>
+<body>
+    <div class="container">
+        <div class = "header">
+            <br>
+            <h2>Signup</h2>
+        </div>
+
+        <form class="form" id="form" method="POST" action="register" >
+            {% csrf_token %}
+            <div class="form-control">
+                <label>Username:</label>
+                <input type="text" placeholder="Enter your Username" name="username" required>
+            </div>
+
+            <div class="form-control">
+                <label>Password:</label>
+                <input type="password" placeholder="Enter your password" name="password" required>
+
+            </div>
+            <div class="form-control">
+                <label>Confirm password:</label>
+                <input type="password" placeholder="Confirm password" name="cpassword" required>
+            </div>
+            <center><button input type="submit"  id="button">Signup</button></center>
+
+         </form>
+
+
+        {% for msg in messages %}
+        <h2>{{msg}}</h2>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

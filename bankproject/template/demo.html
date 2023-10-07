@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Page Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/images/img_2.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust transparency (0.7 for 70% transparent white) */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #0099cc; /* Blue color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width:50%;
+            font-size:16px;
+        }
+         button:hover {
+   background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+{% csrf_token %}
+
+<div class="container">
+        <h2>Click the button to complete the form</h2>
+        <button class="button" onclick="window.location.href='{% url 'registration' %}'">Complete Details</button>
+
+    <script>
+        function redirectToDetailsPage() {
+            // Replace this with the actual URL of your details page
+            window.location.href = 'complete-details.html';
+        }
+    </script>
+    </div>
+
+</body>
+</html>

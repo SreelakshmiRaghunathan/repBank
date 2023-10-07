@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+        *{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    background-image: url('/static/images/img_2.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+
+}
+.container{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-width: 100%;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 100px;
+
+
+}
+.header{
+    border-bottom: 1px sold #f0f0f0;
+<!--    background-color: #f7f7f7;-->
+    padding:20px 40px;
+}
+.header h2{
+    margin: 0;
+    text-align: center;
+}
+.form{
+    padding:30px 40px;
+}
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.form-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.form-control input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.form-control input:focus{
+<!--    outline: none;-->
+    border-color: #f7f7f7;
+}
+
+
+.form button{
+    background-color: #0099cc;
+    border:none;
+    color : white;
+    display: block;
+    font-size: 16px;
+    width:50%;
+    margin-top: 20px;
+    padding:10px;
+    border-radius: 12px;
+cursor:pointer;
+
+}
+ button:hover {
+   background-color: #0056b3;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <div class = "header">
+            <h2>LOGIN</h2>
+        </div>
+        <form action="login" class="form" id="form" method="POST">
+            {% csrf_token %}
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" placeholder="Enter your Username" name="username" required >
+
+            </div>
+            <div class="form-control">
+                <label>password</label>
+                <input type="password" placeholder="Enter your Password" name="password" required>
+            </div>
+
+             <input type="checkbox"> Remember me?
+            <center><button type="submit"  id="button">Login</button></center>
+            <br>
+           <center> Don't have an account?<a href="register">Signup</a></center>
+        </form>
+         {% for msg in messages %}
+        <h2>{{msg}}</h2>
+        {% endfor %}
+    </div>
+</body>
+</html>
